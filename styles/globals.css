@@ -1,38 +1,26 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --clr-ghost: #b5babb;
+  --clr-dark-500: #444343;
+  --clr-danger: #f85959;
+  --clr-success: #17b978;
+  --clr-pink: #fcefee;
+  --clr-gray: #f0f0f0;
+}
+
 html,
 body {
   padding: 0;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  color: var(--clr-dark-500);
 }
 
 a {
   color: inherit;
   text-decoration: none;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-.coin_app {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 10px;
-}
-
-.layout {
-  height: 100%;
-  width: 100%;
-  margin-bottom: 8em;
-}
-
-.header {
-  display: flex;
-  justify-content: center;
-}
-.coin_logo {
-  height: 200px;
-  width: 200px;
 }

@@ -1,3 +1,4 @@
+import { GoTriangleDown, GoTriangleUp } from "react-icons/go";
 import styles from "./Coins.module.css";
 import Link from "next/link";
 
@@ -10,41 +11,63 @@ const Coins = ({
   imagee,
   priceChange,
   id,
+  rank,
 }) => {
+  const marketVolume = (n) =>
+    volume > 1000000000
+      ? (n / 1000000000).toFixed(2) + " B"
+      : Math.floor(n / 1000000) + " M";
+
   return (
-    <Link href="/coin/[id]" as={`/coin/${id}`}>
-      <a>
-        <div key={id} className={styles.coin_container}>
-          <div className={styles.coin_row}>
-            <div className={styles.coin}>
+    <>
+      <td className={styles.coin_rank}>{rank}</td>
+
+      <td>
+        <Link href="/coin/[id]" as={`/coin/${id}`}>
+          <a className={styles.coin_wrapper}>
+            <span>
               <img src={imagee} alt={name} className={styles.coin_img} />
-              <h1 className={styles.coin_header}>{name}</h1>
-              <p className={styles.coin_symbol}>{symbol}</p>
-            </div>
-            <div className={styles.coin_data}>
-              <p className={styles.coin_price}> ${price} </p>
-              <p className={styles.coin_volume}> ${volume.toLocaleString()} </p>
+            </span>
+            <span>
+              <div className={styles.coin_header}>{name}</div>
+              <div className={styles.coin_symbol}>{symbol}</div>
+            </span>
+          </a>
+        </Link>
+      </td>
 
-              {priceChange < 0 ? (
-                <p className={styles.coin_percent_red}>
-                  {" "}
-                  {priceChange.toFixed(2)}%{" "}
-                </p>
-              ) : (
-                <p className={styles.coin_percent_green}>
-                  {" "}
-                  {priceChange.toFixed(2)}%{" "}
-                </p>
-              )}
+      <td className={styles.coin_price}>
+        {" "}
+        <small className={styles.coin_small}>$</small>
+        {price}
+      </td>
 
-              <p className={styles.coin_marketcap}>
-                Market Cap: ${marketCap.toLocaleString()}
-              </p>
-            </div>
-          </div>
-        </div>
-      </a>
-    </Link>
+      <td className={styles.coin_volume}>
+        <small className={styles.coin_small}>$</small>
+        {marketVolume(volume)}
+      </td>
+
+      <td className={styles.coin_24h}>
+        {priceChange < 0 ? (
+          <p className={styles.coin_percent_red}>
+            {" "}
+            {Math.abs(priceChange).toFixed(2)}%{" "}
+            <GoTriangleDown className={styles.triangle} />
+          </p>
+        ) : (
+          <p className={styles.coin_percent_green}>
+            {" "}
+            {priceChange.toFixed(2)}%{" "}
+            <GoTriangleUp className={styles.triangle} />
+          </p>
+        )}
+      </td>
+
+      <td className={styles.coin_marketcap}>
+        <small className={styles.coin_small}>$</small>
+        {marketVolume(marketCap)}
+      </td>
+    </>
   );
 };
 
