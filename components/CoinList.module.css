@@ -5,7 +5,8 @@
 }
 
 .table_header {
-  background: var(--clr-gray);
+  background: rgba(0, 0, 0, 0.856);
+  color: aliceblue;
   height: 50px;
   position: sticky;
   top: 0;

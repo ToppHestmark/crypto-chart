@@ -3,6 +3,7 @@
 }
 
 :root {
+  --clr-primary: #071a52;
   --clr-ghost: #b5babb;
   --clr-dark-500: #444343;
   --clr-danger: #f85959;
