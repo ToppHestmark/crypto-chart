@@ -23,8 +23,15 @@
   top: 15px;
   left: 15px;
   font-weight: 500;
-  font-size: 1.6rem;
+  font-size: 1.3rem;
   color: var(--clr-primary);
+  padding: 0.4em 0.5em;
+  background-color: var(--clr-pink);
+  border-radius: 60%;
+}
+
+.image {
+  margin-top: 2em;
 }
 
 .name {
@@ -38,13 +45,18 @@
 
 .current {
   font-size: 2rem;
-  font-weight: 300;
-  padding: 1em 0;
+  font-weight: 400;
+  padding: 1.3em 0 0.5em 0;
+  margin: 0;
 }
 
 .score_header {
-  font-size: 1.6rem;
+  width: 100%;
+  padding-bottom: 0.5em;
+  font-size: 1.2rem;
   font-weight: 400;
+  text-align: center;
+  border-bottom: 0.5px solid gray;
 }
 
 .bottom {
@@ -65,7 +77,11 @@
 }
 
 .community_header {
-  font-size: 1.6rem;
+  width: 100%;
+  font-size: 1.2rem;
   font-weight: 400;
-  margin-top: 2em;
+  text-align: center;
+  margin-top: 1.6em;
+  padding-bottom: 0.5em;
+  border-bottom: 0.5px solid gray;
 }

@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Link from "next/link";
 import { useState } from "react";
 import CoinList from "../components/CoinList";
 import Layout from "../components/Layout";
@@ -31,6 +32,12 @@ export default function Home({ coins }) {
         <SearchBar type="text" placeholder="Search" onChange={handleChange} />
         <CoinList coins={allCoins} />
       </div>
+      <footer>
+        API by
+        <Link href="https://www.coingecko.com/en/api">
+          <a target="_blank"> Coingecko</a>
+        </Link>
+      </footer>
     </Layout>
   );
 }
