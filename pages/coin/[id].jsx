@@ -23,19 +23,19 @@ const Coin = ({ coin }) => {
           <div className={styles.bottom}>
             <span>
               <p> Coingecko </p>
-              <b> {coin.coingecko_score.toFixed(2)} </b>
+              <b> {coin.coingecko_score.toFixed(2)} % </b>
             </span>
             <span>
               <p>Developer</p>
-              <b>{coin.developer_score.toFixed(2)}</b>
+              <b>{coin.developer_score.toFixed(2)} %</b>
             </span>
             <span>
               <p>Community</p>
-              <b> {coin.community_score.toFixed(2)} </b>{" "}
+              <b> {coin.community_score.toFixed(2)} % </b>{" "}
             </span>
             <span>
               <p>Liquidity</p>
-              <b> {coin.liquidity_score.toFixed(2)} </b>
+              <b> {coin.liquidity_score.toFixed(0)} % </b>
             </span>
           </div>
 
@@ -43,11 +43,20 @@ const Coin = ({ coin }) => {
           <div className={styles.bottom}>
             <span>
               <p> Twitter followers </p>
-              <b> {coin.community_data.twitter_followers} </b>
+              <b>
+                {" "}
+                {new Intl.NumberFormat().format(
+                  coin.community_data.twitter_followers
+                )}{" "}
+              </b>
             </span>
             <span>
               <p>Reddit subscribers</p>
-              <b>{coin.community_data.reddit_subscribers}</b>
+              <b>
+                {new Intl.NumberFormat().format(
+                  coin.community_data.reddit_subscribers
+                )}
+              </b>
             </span>
           </div>
         </div>
