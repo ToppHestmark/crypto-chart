@@ -1,12 +1,14 @@
 import Head from "next/head";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import CoinList from "../components/CoinList";
 import Layout from "../components/Layout";
 import SearchBar from "../components/SearchBar";
+import Spinner from "../components/Spinner";
 
 export default function Home({ coins }) {
   const [search, setSearch] = useState("");
+  const [loading, setLoading] = useState(true);
 
   const allCoins = coins.filter(
     (coin) =>
@@ -20,6 +22,10 @@ export default function Home({ coins }) {
     setSearch(e.target.value.toLowerCase());
   };
 
+  useEffect(() => {
+    coins && setLoading(false);
+  }, [coins]);
+
   return (
     <Layout>
       <Head>
@@ -29,8 +35,18 @@ export default function Home({ coins }) {
       </Head>
 
       <div className="coin_app">
-        <SearchBar type="text" placeholder="Search" onChange={handleChange} />
-        <CoinList coins={allCoins} />
+        {loading ? (
+          <Spinner />
+        ) : (
+          <>
+            <SearchBar
+              type="text"
+              placeholder="Search"
+              onChange={handleChange}
+            />
+            <CoinList coins={allCoins} />
+          </>
+        )}
       </div>
       <footer>
         API by
